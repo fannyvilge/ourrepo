@@ -1,0 +1,14 @@
+-hosts: localhost
+  tasks:
+  - name: ensure apache is at the latest version
+    yum: name=git state=latest
+    become: yes
+    become_method: sudo
+  - name: clone the git repository to ourrepo
+    git: repo=https://github.com/fannyvilge/ourrepo.git dest=/srv/checkout/ourrepo clone=yes update=yes
+    become: yes
+    become_method: sudo
+  - name: clone the git repository to ourrepo
+    git: repo=https://github.com/fannyvilge/spring-petclinic.git dest=/srv/checkout/spring_petclinic clone=yes update=yes
+    become: yes
+    become_method: sudo
